@@ -21,7 +21,12 @@ public class topicController {
 	@PostMapping("/update")
 	public ResponseEntity<?>updateLocation(){
 		
-		this.kafService.UpdateLocation("(" + Math.round(Math.random()*100) + "," + Math.round(Math.random()*100 )+")");
+		for(int i=1;i<=20;i++) {
+			
+			this.kafService.UpdateLocation("(" + Math.round(Math.random()*100) + "," + Math.round(Math.random()*100 )+")");
+		}
+		
+		
 		
 		return new ResponseEntity<>(Map.of("message","location updated"),HttpStatus.OK);
 	}
